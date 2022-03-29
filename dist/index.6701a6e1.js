@@ -22737,12 +22737,13 @@ $parcel$ReactRefreshHelpers$35bf.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+// all 4 jsx files are imported into the main view from the 'src/components/' folders
 parcelHelpers.export(exports, "MainView", ()=>MainView
 );
 var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
+var _react = require("react"); //react library is added and imported for use
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _axios = require("axios");
+var _axios = require("axios"); //axios imported. Axios makes it easy to send asynchronous HTTP requests to REST endpoints and perform CRUD operations
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _loginView = require("../login-view/login-view");
 var _registrationView = require("../registration-view/registration-view");
@@ -22750,7 +22751,7 @@ var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
 class MainView extends _reactDefault.default.Component {
     constructor(){
-        super();
+        super(); //initial state of the component
         this.state = {
             movies: [],
             selectedMovie: null,
@@ -22758,7 +22759,8 @@ class MainView extends _reactDefault.default.Component {
         };
     }
     componentDidMount() {
-        _axiosDefault.default.get('https://myflixdbpopol.herokuapp.com/movies').then((response)=>{
+        _axiosDefault.default.get('https://myflixdbpopol.herokuapp.com/movies') //axios gets the data from beside link
+        .then((response)=>{
             this.setState({
                 movies: response.data
             });
@@ -22788,32 +22790,33 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 53
+                lineNumber: 55
             },
             __self: this
-        }));
+        })); //if the user is not registered he will be directed to the registration
         if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
             onLoggedIn: (user1)=>this.onLoggedIn(user1)
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 55
+                lineNumber: 57
             },
             __self: this
-        }));
+        })); //if the user is not logged in he will be directed to the login
         if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 57
+                lineNumber: 59
             },
             __self: this
-        }));
+        })); //otherwise the user will be directed to the main-view class (which is the return below)
+        //the main-view returns that from the MovieView, which is a general view with all movies, if you click a movie, this "newSelectedMovie" will be displayed
         return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 60
+                lineNumber: 64
             },
             __self: this,
             children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -22823,7 +22826,7 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 62
+                    lineNumber: 66
                 },
                 __self: this
             }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -22833,7 +22836,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 64
+                        lineNumber: 68
                     },
                     __self: this
                 }, movie._id)
@@ -24430,24 +24433,26 @@ var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _s = $RefreshSig$();
 function LoginView(props) {
     _s();
-    const [username, setUsername] = _react.useState('');
+    const [username, setUsername] = _react.useState(''); //useState is a "Hook" from React. In contrast to a class, functions with hooks don´t need to use the ".this.state". Instead we use "useState" directly  
     const [password, setPassword] = _react.useState('');
     const handleSubmit = (e)=>{
-        e.preventDefault();
+        e.preventDefault(); //preventDefault page, supresses the refresh of the page
         console.log(username, password);
         props.onLoggedIn(username);
     };
+    //a form with username, password is being returned to the user in order to submit their info
+    // "e" for "event"
     return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 15
+            lineNumber: 18
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 16
+                    lineNumber: 19
                 },
                 __self: this,
                 children: [
@@ -24459,7 +24464,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 18
+                            lineNumber: 21
                         },
                         __self: this
                     })
@@ -24468,7 +24473,7 @@ function LoginView(props) {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 20
+                    lineNumber: 23
                 },
                 __self: this,
                 children: [
@@ -24480,7 +24485,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 22
+                            lineNumber: 25
                         },
                         __self: this
                     })
@@ -24491,7 +24496,7 @@ function LoginView(props) {
                 onClick: handleSubmit,
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 24
+                    lineNumber: 27
                 },
                 __self: this,
                 children: "Submit"
@@ -25569,13 +25574,13 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MovieView", ()=>MovieView
 );
 var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
+var _react = require("react"); //as for the main-view.jsx, react needs to be imported in order to use the react library
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types");
+var _propTypes = require("prop-types"); //    //since we use prop-types (Property Types), we need to import these too
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 class MovieView extends _reactDefault.default.Component {
     render() {
-        const { movie , onBackClick  } = this.props;
+        const { movie , onBackClick  } = this.props; //we have 2 CONSTants that we use in this file with props. "movie" and "onBackClick". The propTypes are added at the bottom of the file
         return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
             className: "movie-view",
             __source: {
