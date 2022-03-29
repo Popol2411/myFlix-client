@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';  //as for the main-view.jsx, react needs to be imported in order to use the react library
+import PropTypes from 'prop-types';   //    //since we use prop-types (Property Types), we need to import these too
 
 export class MovieView extends React.Component {
 
   render() {
-    const { movie, onBackClick } = this.props;
+    const { movie, onBackClick } = this.props;  //we have 2 CONSTants that we use in this file with props. "movie" and "onBackClick". The propTypes are added at the bottom of the file
 
-    return (
+    return (    //the return that is rendered to the user
       <div className="movie-view">
         <div className="movie-poster">
           <img src={movie.ImagePath} />
@@ -34,9 +34,9 @@ export class MovieView extends React.Component {
   }
 }
 
-MovieView.propTypes = {
-  movie: PropTypes.shape({
-    Title: PropTypes.string.isRequired,
+MovieView.propTypes = {   //for our MovieView class we have prop-types
+  movie: PropTypes.shape({    //prop-types for "movie", .shape defines an object, further, .shape allows to add extra keys that aren´t specified
+    Title: PropTypes.string.isRequired,   //isRequired means that the associated field MUST be filled
     Description: PropTypes.string.isRequired,
     ImagePath: PropTypes.string.isRequired,
     Genre: PropTypes.shape({
