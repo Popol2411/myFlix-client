@@ -6,6 +6,8 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
+import { Container, Row, Col } from 'react-bootstrap';
+
 // all 4 jsx files are imported into the main view from the 'src/components/' folders
 
 export class MainView extends React.Component {   //export class is added, if we would just write class MainView... we would have to add "export default MainView" at the bottom of the document
@@ -60,15 +62,26 @@ export class MainView extends React.Component {   //export class is added, if we
 
     //the main-view returns that from the MovieView, which is a general view with all movies, if you click a movie, this "newSelectedMovie" will be displayed
 
+
     return (
-      <div className="main-view">
-        {selectedMovie
-          ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-          : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
-          ))
-        }
-      </div>
+      <Container>
+        <Row className="main-view justify-content-md-center">
+          {selectedMovie
+            ? (
+              <Col md={8}>
+                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+              </Col>
+            )
+            : (
+              movies.map(movie => (
+                <Col md={4}>
+                  <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+                </Col>
+              ))
+            )
+          }
+        </Row>
+      </Container >
     );
   }
 
