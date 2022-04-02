@@ -21,6 +21,16 @@ export class MainView extends React.Component {   //export class is added, if we
     }
   }
 
+  componentDidMount() {
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
+      });
+      this.getMovies(accessToken);
+    }
+  }
+
   getMovies(token) {
     axios.get('https://myflixdbpopol.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}` }
