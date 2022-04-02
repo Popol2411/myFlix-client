@@ -6,7 +6,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 // all 4 jsx files are imported into the main view from the 'src/components/' folders
 
@@ -69,6 +69,14 @@ export class MainView extends React.Component {   //export class is added, if we
     this.getMovies(authData.token);
   }
 
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    });
+  }
+
   render() {    //rendering is so called what is displayed to the user
     const { movies, selectedMovie, user, register } = this.state;
 
@@ -79,7 +87,6 @@ export class MainView extends React.Component {   //export class is added, if we
     if (movies.length === 0) return <div className="main-view" />;      //otherwise the user will be directed to the main-view class (which is the return below)
 
     //the main-view returns that from the MovieView, which is a general view with all movies, if you click a movie, this "newSelectedMovie" will be displayed
-
 
     return (
       <Container>
@@ -99,6 +106,7 @@ export class MainView extends React.Component {   //export class is added, if we
             )
           }
         </Row>
+        <Button onClick={() => { this.onLoggedOut() }}>Logout</Button>
       </Container >
     );
   }

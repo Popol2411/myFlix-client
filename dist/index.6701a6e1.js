@@ -22810,6 +22810,13 @@ class MainView extends _reactDefault.default.Component {
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
+        });
+    }
     render() {
         const { movies , selectedMovie , user , register  } = this.state;
         if (!register) return(/*#__PURE__*/ _jsxRuntime.jsx(_registrationView.RegistrationView, {
@@ -22817,7 +22824,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 75
+                lineNumber: 83
             },
             __self: this
         })); //if the user is not registered he will be directed to the registration
@@ -22826,7 +22833,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 77
+                lineNumber: 85
             },
             __self: this
         })); //if the user is not logged in he will be directed to the login
@@ -22834,63 +22841,76 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 79
+                lineNumber: 87
             },
             __self: this
         })); //otherwise the user will be directed to the main-view class (which is the return below)
         //the main-view returns that from the MovieView, which is a general view with all movies, if you click a movie, this "newSelectedMovie" will be displayed
-        return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
+        return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 85
+                lineNumber: 92
             },
             __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                className: "main-view justify-content-md-center",
-                __source: {
-                    fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 86
-                },
-                __self: this,
-                children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                    md: 8,
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
+                    className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 89
+                        lineNumber: 93
                     },
                     __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
-                        movie: selectedMovie,
-                        onBackClick: (newSelectedMovie)=>{
-                            this.setSelectedMovie(newSelectedMovie);
-                        },
+                    children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                        md: 8,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 90
-                        },
-                        __self: this
-                    })
-                }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                        md: 4,
-                        __source: {
-                            fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 95
+                            lineNumber: 96
                         },
                         __self: this,
-                        children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                            movie: movie,
-                            onMovieClick: (newSelectedMovie)=>{
+                        children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
+                            movie: selectedMovie,
+                            onBackClick: (newSelectedMovie)=>{
                                 this.setSelectedMovie(newSelectedMovie);
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 96
+                                lineNumber: 97
                             },
                             __self: this
                         })
-                    }, movie._id)
-                )
-            })
+                    }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                            md: 4,
+                            __source: {
+                                fileName: "src/components/main-view/main-view.jsx",
+                                lineNumber: 102
+                            },
+                            __self: this,
+                            children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                                movie: movie,
+                                onMovieClick: (newSelectedMovie)=>{
+                                    this.setSelectedMovie(newSelectedMovie);
+                                },
+                                __source: {
+                                    fileName: "src/components/main-view/main-view.jsx",
+                                    lineNumber: 103
+                                },
+                                __self: this
+                            })
+                        }, movie._id)
+                    )
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                    onClick: ()=>{
+                        this.onLoggedOut();
+                    },
+                    __source: {
+                        fileName: "src/components/main-view/main-view.jsx",
+                        lineNumber: 109
+                    },
+                    __self: this,
+                    children: "Logout"
+                })
+            ]
         }));
     }
 }
