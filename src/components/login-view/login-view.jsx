@@ -1,15 +1,26 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
+import axios from 'axios';    //added axios to be able to login via axios.post (below)
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');   //useState is a "Hook" from React. In contrast to a class, functions with hooks don´t need to use the ".this.state". Instead we use "useState" directly  
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault();   //preventDefault page, supresses the refresh of the page
-    console.log(username, password);
-    props.onLoggedIn(username);
+    e.preventDefault();
+    /* Send a request to the server for authentication */
+    axios.post('https://myflixdbpopol.herokuapp.com/login', {     //API Login Url
+      Username: username,
+      Password: password
+    })
+      .then(response => {
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch(e => {
+        console.log('no such user')
+      });
   };
 
   //a form with username, password is being returned to the user in order to submit their info
