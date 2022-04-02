@@ -21,14 +21,17 @@ export class MainView extends React.Component {   //export class is added, if we
     }
   }
 
-  componentDidMount() {   //componentDidMount() is invoked immediately after a component is mounted (inserted into the tree). Initialization that requires DOM nodes should go here. If you need to load data from a remote endpoint, this is a good place to instantiate the network request.
-    axios.get('https://myflixdbpopol.herokuapp.com/movies')     //axios gets the data from beside link
+  getMovies(token) {
+    axios.get('https://myflixdbpopol.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
       .then(response => {
+        // Assign the result to the state
         this.setState({
           movies: response.data
         });
       })
-      .catch(error => {
+      .catch(function (error) {
         console.log(error);
       });
   }
@@ -45,10 +48,15 @@ export class MainView extends React.Component {   //export class is added, if we
     });
   }
 
-  onLoggedIn(user) {
+  onLoggedIn(authData) {
+    console.log(authData);
     this.setState({
-      user
+      user: authData.user.Username
     });
+
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.Username);
+    this.getMovies(authData.token);
   }
 
   render() {    //rendering is so called what is displayed to the user
