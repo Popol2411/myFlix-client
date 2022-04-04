@@ -1,24 +1,27 @@
-import React from 'react';    //react library is added and imported for use
-import axios from 'axios';    //axios imported. Axios makes it easy to send asynchronous HTTP requests to REST endpoints and perform CRUD operations
+// main-view.jsx
+import React from 'react';
+import axios from 'axios';
 
-import { LoginView } from '../login-view/login-view';
-import { RegistrationView } from '../registration-view/registration-view';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { LoginView } from '../login-view/login-view';
+import { RegistrationView } from '../registration-view/registration-view';
+import { NavbarView } from '../navbar-view/navbar-view';
+import { DirectorView } from '../director-view/director-view';
 
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 
-// all 4 jsx files are imported into the main view from the 'src/components/' folders
+export class MainView extends React.Component {
 
-export class MainView extends React.Component {   //export class is added, if we would just write class MainView... we would have to add "export default MainView" at the bottom of the document
+  constructor() {
+    super();
 
-  constructor() {   //the constructor for a React component is called before it is mounted
-    super();    //initial state of the component
     this.state = {
-      movies: [], //empty array which will be filled with the axios.get response from the componentDidMount function
-      selectedMovie: null,  //null which means without a value
-      user: null,
-    }
+      movies: [],
+      user: null
+    };
   }
 
   componentDidMount() {
@@ -46,18 +49,6 @@ export class MainView extends React.Component {   //export class is added, if we
       });
   }
 
-  setSelectedMovie(newSelectedMovie) {
-    this.setState({
-      selectedMovie: newSelectedMovie
-    });
-  }
-
-  onRegistration(register) {
-    this.setState({
-      register
-    });
-  }
-
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
@@ -69,47 +60,73 @@ export class MainView extends React.Component {   //export class is added, if we
     this.getMovies(authData.token);
   }
 
-  onLoggedOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    this.setState({
-      user: null
-    });
-  }
+  render() {
+    const { movies, user } = this.state;
 
-  render() {    //rendering is so called what is displayed to the user
-    const { movies, selectedMovie, user, register } = this.state;
-
-    if (!register) return <RegistrationView onRegistration={register => this.onRegistration(register)} />;    //if the user is not registered he will be directed to the registration
-
-    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;     //if the user is not logged in he will be directed to the login
-
-    if (movies.length === 0) return <div className="main-view" />;      //otherwise the user will be directed to the main-view class (which is the return below)
-
-    //the main-view returns that from the MovieView, which is a general view with all movies, if you click a movie, this "newSelectedMovie" will be displayed
+    if (!user) return <Row>
+      <Col>
+        <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+      </Col>
+    </Row>
+    if (movies.length === 0) return <div className="main-view" />;
 
     return (
-      <Container>
-        <Row className="main-view justify-content-md-center">
-          {selectedMovie
-            ? (
-              <Col md={8}>
-                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+      <Router>
+        <NavbarView user={user} />
+        <Container>
+          <Row className="main-view justify-content-md-center">
+            <Route exact path="/" render={() => {
+              if (!user) return <Col>
+                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
               </Col>
-            )
-            : (
-              movies.map(movie => (
-                <Col key={movie._id} md={4}>
-                  <MovieCard movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+              if (movies.length === 0) return <div className="main-view"></div>
+              return movies.map(m => (
+                <Col md={3} key={m._id}>
+                  <MovieCard movie={m} />
                 </Col>
               ))
-            )
-          }
-        </Row>
-        <Button onClick={() => { this.onLoggedOut() }}>Logout</Button>
-      </Container >
+            }} />
+            <Route path='/register' render={() => {
+              if (user) return <Redirect to="/" />
+              return <Col lg={8} md={8}>
+                <RegistrationView />
+              </Col>
+            }} />
+            <Route path="/movies/:movieId" render={({ match, history }) => {
+              return <Col md={8}>
+                <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
+              </Col>
+            }} />
+            <Route path="/movie-director/:id" render={({ match, history }) => {
+              return <Col>
+                <DirectorView movie={movies.find(m => m._id === match.params.id)} onBackClick={() => history.goBack()} />
+              </Col>
+            }} />
+            <Route path="/director/:Name" render={({ match, history }) => {
+              if (movies.length === 0) return <div className="main-view" />;
+              return <Col md={8}>
+                <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
+              </Col>
+            }} />
+            <Route path={`/users/${user}`}
+              render={({ match, history }) => {
+                if (!user) return <Redirect to="/" />
+                return <Col>
+                  <ProfileView movies={movies}
+                    user={user} onBackClick={() => history.goBack()} />
+                </Col>
+              }} />
+            <Route path={`/user-update/${user}`}
+              render={({ match, history }) => {
+                if (!user) return <Redirect to="/" />
+                return <Col>
+                  <UserUpdate user={user}
+                    onBackClick={() => history.goBack()} />
+                </Col>
+              }} />
+          </Row>
+        </Container>
+      </Router>
     );
   }
-
 }
-
