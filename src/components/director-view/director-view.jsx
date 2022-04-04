@@ -10,25 +10,13 @@ export class DirectorView extends React.Component {
     const { director, onBackClick, movies } = this.props;
 
     return (
-      <Container fluid>
+      <Container>
         <Card>
           <Card.Body>
             <Card.Title>Director</Card.Title>
             <Card.Text>
               <span className="label">Name: </span>
               <span className="value">{director.Name}</span>
-            </Card.Text>
-            <Card.Text>
-              <span className="label">Bio: </span>
-              <span className="value">{director.Bio}</span>
-            </Card.Text>
-            <Card.Text>
-              <span className="label">Birth: </span>
-              <span className="value">{director.Birth}</span>
-            </Card.Text>
-            <Card.Text>
-              <span className="label">Death: </span>
-              <span className="value">{director.Death}</span>
             </Card.Text>
 
             <Button variant="outline-light" onClick={() => { onBackClick(); }}>Back</Button>

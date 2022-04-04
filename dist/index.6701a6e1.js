@@ -40595,7 +40595,6 @@ class DirectorView extends _reactDefault.default.Component {
     render() {
         const { director , onBackClick , movies  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
-            fluid: true,
             __source: {
                 fileName: "src/components/director-view/director-view.jsx",
                 lineNumber: 13
@@ -40650,87 +40649,6 @@ class DirectorView extends _reactDefault.default.Component {
                                     })
                                 ]
                             }),
-                            /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Text, {
-                                __source: {
-                                    fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 21
-                                },
-                                __self: this,
-                                children: [
-                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                        className: "label",
-                                        __source: {
-                                            fileName: "src/components/director-view/director-view.jsx",
-                                            lineNumber: 22
-                                        },
-                                        __self: this,
-                                        children: "Bio: "
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                        className: "value",
-                                        __source: {
-                                            fileName: "src/components/director-view/director-view.jsx",
-                                            lineNumber: 23
-                                        },
-                                        __self: this,
-                                        children: director.Bio
-                                    })
-                                ]
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Text, {
-                                __source: {
-                                    fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 25
-                                },
-                                __self: this,
-                                children: [
-                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                        className: "label",
-                                        __source: {
-                                            fileName: "src/components/director-view/director-view.jsx",
-                                            lineNumber: 26
-                                        },
-                                        __self: this,
-                                        children: "Birth: "
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                        className: "value",
-                                        __source: {
-                                            fileName: "src/components/director-view/director-view.jsx",
-                                            lineNumber: 27
-                                        },
-                                        __self: this,
-                                        children: director.Birth
-                                    })
-                                ]
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Text, {
-                                __source: {
-                                    fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 29
-                                },
-                                __self: this,
-                                children: [
-                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                        className: "label",
-                                        __source: {
-                                            fileName: "src/components/director-view/director-view.jsx",
-                                            lineNumber: 30
-                                        },
-                                        __self: this,
-                                        children: "Death: "
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx("span", {
-                                        className: "value",
-                                        __source: {
-                                            fileName: "src/components/director-view/director-view.jsx",
-                                            lineNumber: 31
-                                        },
-                                        __self: this,
-                                        children: director.Death
-                                    })
-                                ]
-                            }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                                 variant: "outline-light",
                                 onClick: ()=>{
@@ -40738,7 +40656,7 @@ class DirectorView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/director-view/director-view.jsx",
-                                    lineNumber: 34
+                                    lineNumber: 22
                                 },
                                 __self: this,
                                 children: "Back"
@@ -40749,14 +40667,14 @@ class DirectorView extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     __source: {
                         fileName: "src/components/director-view/director-view.jsx",
-                        lineNumber: 37
+                        lineNumber: 25
                     },
                     __self: this,
                     children: movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
                             className: "favorite-movie card-content",
                             __source: {
                                 fileName: "src/components/director-view/director-view.jsx",
-                                lineNumber: 39
+                                lineNumber: 27
                             },
                             __self: this,
                             children: [
@@ -40766,7 +40684,7 @@ class DirectorView extends _reactDefault.default.Component {
                                     src: movie.ImagePath,
                                     __source: {
                                         fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 40
+                                        lineNumber: 28
                                     },
                                     __self: this
                                 }),
@@ -40776,14 +40694,14 @@ class DirectorView extends _reactDefault.default.Component {
                                     },
                                     __source: {
                                         fileName: "src/components/director-view/director-view.jsx",
-                                        lineNumber: 44
+                                        lineNumber: 32
                                     },
                                     __self: this,
                                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
                                         className: "movie_title",
                                         __source: {
                                             fileName: "src/components/director-view/director-view.jsx",
-                                            lineNumber: 45
+                                            lineNumber: 33
                                         },
                                         __self: this,
                                         children: movie.Title
