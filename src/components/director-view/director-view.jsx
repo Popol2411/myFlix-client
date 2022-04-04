@@ -1,43 +1,55 @@
 import React from 'react';
-
-import { MovieCard } from '../movie-card/movie-card';
-
-import { Row, Col, Button } from 'react-bootstrap';
-
+import axios from 'axios';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Container, Card, Button, Row } from 'react-bootstrap';
 
-export function DirectorView(props) {
-  return (
-    <>
+export class DirectorView extends React.Component {
 
-      <div>
-        <Button variant="outline-light" onClick={() => { props.onBackClick() }}>Back</Button>
-      </div>
+  render() {
+    const { director, onBackClick, movies } = this.props;
 
-      <div>
-        <h1 className="display-4">{props.director.Name}</h1>
-      </div>
-      <br />
-      <div>
-        <h4>Some movies from this director:</h4>
-      </div>
+    return (
+      <Container fluid>
+        <Card>
+          <Card.Body>
+            <Card.Title>Director</Card.Title>
+            <Card.Text>
+              <span className="label">Name: </span>
+              <span className="value">{director.Name}</span>
+            </Card.Text>
+            <Card.Text>
+              <span className="label">Bio: </span>
+              <span className="value">{director.Bio}</span>
+            </Card.Text>
+            <Card.Text>
+              <span className="label">Birth: </span>
+              <span className="value">{director.Birth}</span>
+            </Card.Text>
+            <Card.Text>
+              <span className="label">Death: </span>
+              <span className="value">{director.Death}</span>
+            </Card.Text>
 
-
-
-      <Row className="justify-content-md-center">
-        {props.movies.filter(m => m.Director.Name === props.director.Name).map(m => (
-          <Col xs={12} sm={6} md={4} className="d-flex" key={m._id}>
-            <MovieCard movie={m} />
-          </Col>
-        ))}
-      </Row>
-
-
-
-
-      <Link to={"/"}>
-        <Button variant="outline-light">See Full Movie List</Button>
-      </Link>
-    </>
-  )
+            <Button variant="outline-light" onClick={() => { onBackClick(); }}>Back</Button>
+          </Card.Body>
+        </Card>
+        <Row>
+          {movies.map(movie => (
+            <Card className="favorite-movie card-content" key={movie._id} >
+              <Card.Img
+                className="fav-poster"
+                variant="top"
+                src={movie.ImagePath} />
+              <Card.Body style={{ backgroundColor: "black" }}>
+                <Card.Title className="movie_title">
+                  {movie.Title}
+                </Card.Title>
+              </Card.Body>
+            </Card>
+          ))}
+        </Row>
+      </Container>
+    );
+  }
 }

@@ -1,43 +1,54 @@
 import React from 'react';
-
-import { MovieCard } from '../movie-card/movie-card';
-
-import { Row, Col, Button } from 'react-bootstrap';
-
+import axios from 'axios';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Container, Card, Button, Row } from 'react-bootstrap';
 
-export function GenreView(props) {
-  return (
-    <>
+export class GenreView extends React.Component {
 
-      <div>
-        <Button variant="outline-light" onClick={() => { props.onBackClick() }}>Back</Button>
-      </div>
+  render() {
+    const { genre, onBackClick, movies } = this.props;
 
-      <div>
-        <h1 className="display-4">{props.genre.Name}</h1>
-      </div>
-      <br />
-      <div>
-        <h4>Some movies in this genre:</h4>
-      </div>
+    return (
+      <Container fluid>
+        <Card>
+          <Card.Body>
+            <Card.Title>Genre</Card.Title>
+            <Card.Text>
+              <span className="label">Name: </span>
+              <span className="value">{genre.Name}</span>
+            </Card.Text>
+            <Card.Text>
+              <span className="label">Description: </span>
+              <span className="value">{genre.Description}</span>
+            </Card.Text>
 
-
-
-      <Row className="justify-content-md-center">
-        {props.movies.filter(m => m.Genre.Name === props.genre.Name).map(m => (
-          <Col xs={12} sm={6} md={4} className="d-flex" key={m._id}>
-            <MovieCard movie={m} />
-          </Col>
-        ))}
-      </Row>
-
-
-
-
-      <Link to={"/"}>
-        <Button variant="outline-light">See Full Movie List</Button>
-      </Link>
-    </>
-  )
+            <Button variant="outline-light" onClick={() => { onBackClick(); }}>Back</Button>
+          </Card.Body>
+        </Card>
+        <Row>
+          {movies.map(movie => (
+            <Card className="favorite-movie card-content" key={movie._id} >
+              <Card.Img
+                className="fav-poster"
+                variant="top"
+                src={movie.ImagePath} />
+              <Card.Body style={{ backgroundColor: "black" }}>
+                <Card.Title className="movie_title">
+                  {movie.Title}
+                </Card.Title>
+              </Card.Body>
+            </Card>
+          ))}
+        </Row>
+      </Container>
+    );
+  }
 }
+
+GenreView.proptypes = {
+  genre: PropTypes.shape({
+    Name: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+  }).isRequired,
+};
