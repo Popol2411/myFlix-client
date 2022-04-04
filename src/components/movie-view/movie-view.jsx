@@ -1,6 +1,6 @@
 import React from 'react';  //as for the main-view.jsx, react needs to be imported in order to use the react library
 import PropTypes from 'prop-types';   //    //since we use prop-types (Property Types), we need to import these too
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Link } from "react-bootstrap";
 
 export class MovieView extends React.Component {
 
@@ -43,9 +43,6 @@ MovieView.propTypes = {   //for our MovieView class we have prop-types
     Title: PropTypes.string.isRequired,   //isRequired means that the associated field MUST be filled
     Description: PropTypes.string.isRequired,
     ImagePath: PropTypes.string.isRequired,
-    Genre: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-    }),
     Genre: PropTypes.shape({
       Name: PropTypes.string.isRequired,
     }),

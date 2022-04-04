@@ -39807,7 +39807,7 @@ class MovieView extends _reactDefault.default.Component {
                                         __self: this,
                                         children: movie.Director.Name
                                     }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(Link, {
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Link, {
                                         to: `/director/${movie.Director.Name}`,
                                         __source: {
                                             fileName: "src/components/movie-view/movie-view.jsx",
@@ -39824,7 +39824,7 @@ class MovieView extends _reactDefault.default.Component {
                                             children: "Director"
                                         })
                                     }),
-                                    /*#__PURE__*/ _jsxRuntime.jsx(Link, {
+                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Link, {
                                         to: `/genre/${movie.Genre.Name}`,
                                         __source: {
                                             fileName: "src/components/movie-view/movie-view.jsx",
@@ -39866,9 +39866,6 @@ MovieView.propTypes = {
         Title: _propTypesDefault.default.string.isRequired,
         Description: _propTypesDefault.default.string.isRequired,
         ImagePath: _propTypesDefault.default.string.isRequired,
-        Genre: _propTypesDefault.default.shape({
-            Name: _propTypesDefault.default.string.isRequired
-        }),
         Genre: _propTypesDefault.default.shape({
             Name: _propTypesDefault.default.string.isRequired
         })
