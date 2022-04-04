@@ -22,6 +22,12 @@ export class MovieView extends React.Component {
                 <Card.Text>{movie.Genre.Name}</Card.Text>
                 <Card.Title>Director: </Card.Title>
                 <Card.Text>{movie.Director.Name}</Card.Text>
+                <Link to={`/directors/${movie.Director.Name}`}>
+                  <Button variant="link">Director</Button>
+                </Link>
+                <Link to={`/genres/${movie.Genre.Name}`}>
+                  <Button variant="link">Genre</Button>
+                </Link>
               </Card.Body>
             </Card>
             <Button onClick={() => { onBackClick(null); }}>Back</Button>
@@ -31,6 +37,7 @@ export class MovieView extends React.Component {
     );
   }
 }
+
 MovieView.propTypes = {   //for our MovieView class we have prop-types
   movie: PropTypes.shape({    //prop-types for "movie", .shape defines an object, further, .shape allows to add extra keys that aren´t specified
     Title: PropTypes.string.isRequired,   //isRequired means that the associated field MUST be filled
