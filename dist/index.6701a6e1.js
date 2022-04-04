@@ -39871,8 +39871,7 @@ MovieView.propTypes = {
             Name: _propTypesDefault.default.string.isRequired
         }),
         Genre: _propTypesDefault.default.shape({
-            Name: _propTypesDefault.default.string.isRequired,
-            Description: _propTypesDefault.default.string.isRequired
+            Name: _propTypesDefault.default.string.isRequired
         })
     }).isRequired,
     onBackClick: _propTypesDefault.default.func.isRequired

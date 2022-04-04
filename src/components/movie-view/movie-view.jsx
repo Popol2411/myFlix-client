@@ -48,7 +48,6 @@ MovieView.propTypes = {   //for our MovieView class we have prop-types
     }),
     Genre: PropTypes.shape({
       Name: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired
     }),
   }).isRequired,
   onBackClick: PropTypes.func.isRequired
