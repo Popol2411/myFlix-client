@@ -22,7 +22,6 @@ export class MovieView extends React.Component {
                 <Card.Text>{movie.Genre.Name}</Card.Text>
                 <Card.Title>Director: </Card.Title>
                 <Card.Text>{movie.Director.Name}</Card.Text>
-
               </Card.Body>
             </Card>
             <Button onClick={() => { onBackClick(null); }}>Back</Button>
