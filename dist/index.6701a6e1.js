@@ -40912,7 +40912,7 @@ function ProfileView(props) {
     let token = localStorage.getItem('token');
     _axiosDefault.default.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     /* Create function to get the user data from server, assign to userdata variable  */ const getUserData = (cancelToken, username)=>{
-        _axiosDefault.default.get(`https://femmovies.herokuapp.com/users/${username}`, {
+        _axiosDefault.default.get(`https://myflixdbpopol.herokuapp.com/users/${username}`, {
             cancelToken: cancelToken
         }).then((response)=>{
             //Assign the result to the userdata
@@ -40937,7 +40937,7 @@ function ProfileView(props) {
     /* Update userdata through API */ /* TBD: Validation? */ const handleSubmit = (e)=>{
         e.preventDefault(); // prevent default submit button behaviour, i.e., don't reload the page
         // Sending request to server, if successful, update userdata
-        _axiosDefault.default.put(`https://femmovies.herokuapp.com/users/${userdata.Username}`, updatedUser).then((response)=>{
+        _axiosDefault.default.put(`https://myflixdbpopol.herokuapp.com/users/${userdata.Username}`, updatedUser).then((response)=>{
             // Update userdata with the new userdata from the server
             setUserdata(response.data);
             alert('Profile successfully updated');
@@ -40952,7 +40952,7 @@ function ProfileView(props) {
         });
     };
     /* Allow users to deregister !!! TBD: ADD 'Are you sure?'-MODAL !!! */ const deleteProfile = (e)=>{
-        _axiosDefault.default.delete(`https://femmovies.herokuapp.com/users/${userdata.Username}`).then((response)=>{
+        _axiosDefault.default.delete(`https://myflixdbpopol.herokuapp.com/users/${userdata.Username}`).then((response)=>{
             alert('Your profile was deleted!');
             localStorage.removeItem('user');
             localStorage.removeItem('token');
@@ -40962,7 +40962,7 @@ function ProfileView(props) {
         });
     };
     /* Function that allows users to remove a movie from their list of favorites */ const removeFav = (id)=>{
-        _axiosDefault.default.delete(`https://femmovies.herokuapp.com/users/${userdata.Username}/movies/${id}`).then(()=>{
+        _axiosDefault.default.delete(`hhttps://myflixdbpopol.herokuapp.com/users/${userdata.Username}/movies/${id}`).then(()=>{
             // Change state of favoriteMovieList to rerender component
             setFavoriteMovieList(favoriteMovieList.filter((movie)=>movie._id != id
             ));

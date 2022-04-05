@@ -23,7 +23,7 @@ export function ProfileView(props) {
 
   /* Create function to get the user data from server, assign to userdata variable  */
   const getUserData = (cancelToken, username) => {
-    axios.get(`https://femmovies.herokuapp.com/users/${username}`, {
+    axios.get(`https://myflixdbpopol.herokuapp.com/users/${username}`, {
       cancelToken: cancelToken
     })
       .then(response => {
@@ -60,7 +60,7 @@ export function ProfileView(props) {
     e.preventDefault(); // prevent default submit button behaviour, i.e., don't reload the page
 
     // Sending request to server, if successful, update userdata
-    axios.put(`https://femmovies.herokuapp.com/users/${userdata.Username}`,
+    axios.put(`https://myflixdbpopol.herokuapp.com/users/${userdata.Username}`,
       updatedUser
     )
       .then(response => {
@@ -83,7 +83,7 @@ export function ProfileView(props) {
 
   /* Allow users to deregister !!! TBD: ADD 'Are you sure?'-MODAL !!! */
   const deleteProfile = (e) => {
-    axios.delete(`https://femmovies.herokuapp.com/users/${userdata.Username}`)
+    axios.delete(`https://myflixdbpopol.herokuapp.com/users/${userdata.Username}`)
       .then(response => {
         alert('Your profile was deleted!');
         localStorage.removeItem('user');
@@ -98,7 +98,7 @@ export function ProfileView(props) {
 
   /* Function that allows users to remove a movie from their list of favorites */
   const removeFav = (id) => {
-    axios.delete(`https://femmovies.herokuapp.com/users/${userdata.Username}/movies/${id}`)
+    axios.delete(`hhttps://myflixdbpopol.herokuapp.com/users/${userdata.Username}/movies/${id}`)
       .then(() => {
         // Change state of favoriteMovieList to rerender component
         setFavoriteMovieList(favoriteMovieList.filter(movie => movie._id != id));
