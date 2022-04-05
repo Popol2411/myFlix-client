@@ -10,6 +10,7 @@ import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { NavbarView } from '../navbar-view/navbar-view';
 import { DirectorView } from '../director-view/director-view';
+import { GenreView } from '../genre-view/genre-view';
 
 import { Row, Col, Container } from 'react-bootstrap';
 
@@ -22,16 +23,6 @@ export class MainView extends React.Component {
       movies: [],
       user: null
     };
-  }
-
-  componentDidMount() {
-    let accessToken = localStorage.getItem('token');
-    if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem('user')
-      });
-      this.getMovies(accessToken);
-    }
   }
 
   getMovies(token) {
@@ -60,32 +51,41 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+  componentDidMount() {
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
+      });
+      this.getMovies(accessToken);
+    }
+  }
+
   render() {
     const { movies, user } = this.state;
-
-    if (!user) return <Row>
-      <Col>
-        <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-      </Col>
-    </Row>
-    if (movies.length === 0) return <div className="main-view" />;
 
     return (
       <Router>
         <NavbarView user={user} />
         <Container>
+
           <Row className="main-view justify-content-md-center">
+
             <Route exact path="/" render={() => {
-              if (!user) return <Col>
-                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-              </Col>
+              if (!user) return (
+                <Col>
+                  <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                </Col>
+              )
               if (movies.length === 0) return <div className="main-view"></div>
+
               return movies.map(m => (
                 <Col md={3} key={m._id}>
                   <MovieCard movie={m} />
                 </Col>
               ))
             }} />
+
             <Route path='/register' render={() => {
               if (user) return <Redirect to="/" />
               return <Col lg={8} md={8}>
@@ -97,33 +97,23 @@ export class MainView extends React.Component {
                 <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
               </Col>
             }} />
-            <Route path="/director/:id" render={({ match, history }) => {
-              return <Col>
-                <DirectorView movie={movies.find(m => m._id === match.params.id)} onBackClick={() => history.goBack()} />
-              </Col>
-            }} />
-            <Route path="/director/:Name" render={({ match, history }) => {
+            <Route path="/directors/:Name" render={({ match, history }) => {
               if (movies.length === 0) return <div className="main-view" />;
               return <Col md={8}>
                 <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
               </Col>
             }} />
-            <Route path={`/users/${user}`}
-              render={({ match, history }) => {
-                if (!user) return <Redirect to="/" />
-                return <Col>
-                  <ProfileView movies={movies}
-                    user={user} onBackClick={() => history.goBack()} />
+
+            <Route path={"/genres/:name"} render={({ match, history }) => {
+              if (!user) return <Redirect to="/" />
+              // If movie list is empty (while movies load from API), display empty page
+              if (movies.length === 0) return <div className="main-view" />;
+              return (
+                <Col xs={12} md={10}>
+                  <GenreView movies={movies} genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
                 </Col>
-              }} />
-            <Route path={`/user-update/${user}`}
-              render={({ match, history }) => {
-                if (!user) return <Redirect to="/" />
-                return <Col>
-                  <UserUpdate user={user}
-                    onBackClick={() => history.goBack()} />
-                </Col>
-              }} />
+              )
+            }} />
           </Row>
         </Container>
       </Router>
