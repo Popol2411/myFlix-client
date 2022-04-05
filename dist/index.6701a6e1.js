@@ -40268,7 +40268,7 @@ function RegistrationView(props) {
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
                                 type: "email",
-                                value: password,
+                                value: email,
                                 onChange: (e)=>setEmail(e.target.value)
                                 ,
                                 __source: {
@@ -40342,7 +40342,7 @@ function RegistrationView(props) {
                         },
                         __self: this,
                         children: [
-                            "Already registered",
+                            "Already registered?",
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
                                 to: '/',
                                 __source: {
@@ -40350,9 +40350,9 @@ function RegistrationView(props) {
                                     lineNumber: 123
                                 },
                                 __self: this,
-                                children: "sign in"
+                                children: " Sign in "
                             }),
-                            "here"
+                            " here! "
                         ]
                     })
                 ]

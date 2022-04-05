@@ -106,7 +106,7 @@ export function RegistrationView(props) {
 
           <Form.Group controlId="Email" className="reg-form-inputs">
             <Form.Label>Email:</Form.Label>
-            <Form.Control type="email" value={password} onChange={e =>
+            <Form.Control type="email" value={email} onChange={e =>
               setEmail(e.target.value)} />
             {values.emailErr && <p>{values.emailErr}</p>}
           </Form.Group>
@@ -120,7 +120,7 @@ export function RegistrationView(props) {
 
           <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
           <p></p>
-          <p>Already registered<Link to={'/'}>sign in</Link>here</p>
+          <p>Already registered?<Link to={'/'}> Sign in </Link> here! </p>
         </Form>
       </Col>
     </Row>
