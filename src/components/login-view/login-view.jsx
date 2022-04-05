@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';    //added axios to be able to login via axios.post (below)
+import { Link } from "react-router-dom";
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');   //useState is a "Hook" from React. In contrast to a class, functions with hooks don´t need to use the ".this.state". Instead we use "useState" directly  
