@@ -11,6 +11,7 @@ export class DirectorView extends React.Component {
 
     return (
       <Container>
+
         <Card>
           <Card.Body>
             <Card.Title>Director</Card.Title>
@@ -18,10 +19,10 @@ export class DirectorView extends React.Component {
               <span className="label">Name: </span>
               <span className="value">{director.Name}</span>
             </Card.Text>
-
             <Button variant="outline-light" onClick={() => { onBackClick(); }}>Back</Button>
           </Card.Body>
         </Card>
+
         <Row>
           {movies.map(movie => (
             <Card className="favorite-movie card-content" key={movie._id} >
@@ -37,6 +38,7 @@ export class DirectorView extends React.Component {
             </Card>
           ))}
         </Row>
+
       </Container>
     );
   }

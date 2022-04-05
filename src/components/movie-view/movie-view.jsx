@@ -12,6 +12,7 @@ export class MovieView extends React.Component {
       <Container>
         <Row>
           <Col>
+
             <Card>
               <Card.Body>
                 <Card.Img variant="top" src={movie.ImagePath} />
@@ -31,7 +32,9 @@ export class MovieView extends React.Component {
                 </Link>
               </Card.Body>
             </Card>
+
             <Button onClick={() => { onBackClick(null); }}>Back</Button>
+
           </Col>
         </Row>
       </Container >

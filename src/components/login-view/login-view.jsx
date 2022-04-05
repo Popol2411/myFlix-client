@@ -54,6 +54,7 @@ export function LoginView(props) {
 
   return (
     <Form>
+
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
         <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
@@ -67,9 +68,11 @@ export function LoginView(props) {
         {/* code added here to display validation error */}
         {passwordErr && <p>{passwordErr}</p>}
       </Form.Group>
+
       <Button variant="primary" type="submit" onClick={handleSubmit}>
         Submit
       </Button>
+
     </Form>
   )
 }

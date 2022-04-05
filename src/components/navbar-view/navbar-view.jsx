@@ -23,7 +23,9 @@ export function NavbarView({ user }) {
 
   return (
     <Navbar className="main-nav" sticky="top" expand="lg" variant="dark">
-      <Container fluid>
+
+      <Container>
+
         <Navbar.Brand className="navbar-logo" href="/">MyFlix</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -44,7 +46,9 @@ export function NavbarView({ user }) {
             )}
           </Nav>
         </Navbar.Collapse>
+
       </Container>
+
     </Navbar>
   );
 }

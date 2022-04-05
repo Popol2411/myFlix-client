@@ -81,7 +81,7 @@ export function RegistrationView(props) {
       <Col md={12}>
         <Form>
           <h3>Sign Up</h3>
-          <p></p>
+
           <Form.Group controlId="formUsername" className="reg-form-inputs">
             <Form.Label>Username:</Form.Label>
             <Form.Control type="text" value={username} onChange={e =>
@@ -96,7 +96,6 @@ export function RegistrationView(props) {
             {values.nameErr && <p>{values.nameErr}</p>}
           </Form.Group>
 
-
           <Form.Group controlId="formPassword" className="reg-form-inputs">
             <Form.Label>Password:</Form.Label>
             <Form.Control type="password" value={password} onChange={e =>
@@ -110,7 +109,6 @@ export function RegistrationView(props) {
               setEmail(e.target.value)} />
             {values.emailErr && <p>{values.emailErr}</p>}
           </Form.Group>
-
 
           <Form.Group controlId="updateBirthday" className="reg-form-inputs">
             <Form.Label>Birthday:</Form.Label>

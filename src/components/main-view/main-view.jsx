@@ -92,11 +92,13 @@ export class MainView extends React.Component {
                 <RegistrationView />
               </Col>
             }} />
+
             <Route path="/movies/:movieId" render={({ match, history }) => {
               return <Col md={8}>
                 <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
               </Col>
             }} />
+
             <Route path="/directors/:Name" render={({ match, history }) => {
               if (movies.length === 0) return <div className="main-view" />;
               return <Col md={8}>
@@ -114,6 +116,7 @@ export class MainView extends React.Component {
                 </Col>
               )
             }} />
+
           </Row>
         </Container>
       </Router>
