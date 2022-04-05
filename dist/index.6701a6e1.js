@@ -22898,7 +22898,7 @@ class MainView extends _reactDefault.default.Component {
                                 __self: this
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                                path: "/directors/:Name",
+                                path: "/director/:Name",
                                 render: ({ match , history  })=>{
                                     if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
                                         className: "main-view"
@@ -22919,7 +22919,7 @@ class MainView extends _reactDefault.default.Component {
                                 __self: this
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                                path: "/genres/:name",
+                                path: "/genre/:name",
                                 render: ({ match , history  })=>{
                                     if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(Redirect, {
                                         to: "/"
@@ -40032,7 +40032,7 @@ function RegistrationView(props) {
     // validate user inputs
     const validate = ()=>{
         let isReq = true;
-        if (name) {
+        if (!name) {
             setValues({
                 ...values,
                 nameErr: 'Name is required'

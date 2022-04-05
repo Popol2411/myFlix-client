@@ -22,7 +22,7 @@ export function RegistrationView(props) {
   // validate user inputs
   const validate = () => {
     let isReq = true;
-    if (name) {
+    if (!name) {
       setValues({ ...values, nameErr: 'Name is required' })
       isReq = false;
     }
