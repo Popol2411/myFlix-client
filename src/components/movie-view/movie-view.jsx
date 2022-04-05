@@ -1,6 +1,7 @@
 import React from 'react';  //as for the main-view.jsx, react needs to be imported in order to use the react library
 import PropTypes from 'prop-types';   //    //since we use prop-types (Property Types), we need to import these too
 import { Container, Row, Col, Card, Button, Link } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export class MovieView extends React.Component {
 
@@ -22,6 +23,12 @@ export class MovieView extends React.Component {
                 <Card.Text>{movie.Genre.Name}</Card.Text>
                 <Card.Title>Director: </Card.Title>
                 <Card.Text>{movie.Director.Name}</Card.Text>
+                <Link to={`/director/${movie.Director.Name}`}>
+                  <Button variant="link">Director</Button>
+                </Link>
+                <Link to={`/genre/${movie.Genre.Name}`}>
+                  <Button variant="link">Genre</Button>
+                </Link>
               </Card.Body>
             </Card>
             <Button onClick={() => { onBackClick(null); }}>Back</Button>
