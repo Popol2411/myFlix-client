@@ -1,40 +1,40 @@
-import React from 'react';
+import React from 'react'
 
-import { Form, Button } from 'react-bootstrap';
+export function UpdateUser({ handleSubmit, handleUpdate }) {
 
-export function UpdateUser({ userdata, handleUpdate, handleSubmit }) {
-  // Return a registration form where users can submit their username, password, email and birthday
-  // Listening to changes on input and then updating the respective states
   return (
-    <>
-      <h4>Update profile information</h4>
-      <Form className="mb-3">
-        <Form.Group controlId="formUsername" className="mb-3">
-          <Form.Label>Username:</Form.Label>
-          <Form.Control type="text" name="Username" onChange={e => handleUpdate(e)} />
-        </Form.Group>
 
-        <Form.Group controlId="formPassword" className="mb-3">
-          <Form.Label>Password:</Form.Label>
-          <Form.Control type="password" name="Password" onChange={e => handleUpdate(e)} />
-        </Form.Group>
+    <form className='profile-form' onSubmit={(e) => handleSubmit(e)}>
 
-        <Form.Group controlId="formEmail" className="mb-3">
-          <Form.Label>Email:</Form.Label>
-          <Form.Control type="email" name="Email" onChange={e => handleUpdate(e)} />
-        </Form.Group>
+      <h2>Update Infos Here!</h2>
 
-        <Form.Group controlId="formBirthday" className="mb-3">
-          <Form.Label>Birthday:</Form.Label>
-          <Form.Control type="date" name="Birthday" onChange={e => handleUpdate(e)} />
-        </Form.Group>
+      <label>Username:</label>
 
-        <Button variant="primary" type="submit" onClick={handleSubmit}>
-          Update Profile
-        </Button>
-      </Form>
-    </>
+      <input
+        type='text'
+        name='Username'
+        defaultValue={user.Username}
+        onChange={e => handleUpdate(e)} />
+
+      <label>Password</label>
+
+      <input
+        type='password'
+        name='Password'
+        defaultValue={user.Password}
+        onChange={e => handleUpdate(e)} />
+
+      <label>Email:</label>
+
+      <input
+        type='email'
+        name='Email'
+        defaultValue={user.Email}
+        onChange={e => handleUpdate(e.target.value)} />
+
+      <button variant='primary' type='submit'>Update</button>
+
+    </form>
 
   )
-
 }
