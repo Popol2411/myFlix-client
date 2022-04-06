@@ -11,7 +11,6 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { NavbarView } from '../navbar-view/navbar-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
-import { ProfileView } from '../profile-view/profile-view';
 
 import { Row, Col, Container } from 'react-bootstrap';
 
@@ -101,13 +100,14 @@ export class MainView extends React.Component {
             }} />
 
             <Route path="/director/:name" render={({ match, history }) => {
+              if (!user) return <Redirect to="/" />
               if (movies.length === 0) return <div className="main-view" />;
               return <Col md={8}>
-                <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
+                <DirectorView movies={movies} director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
               </Col>
             }} />
 
-            <Route path={"/genre/:name"} render={({ match, history }) => {
+            <Route path="/genre/:name" render={({ match, history }) => {
               if (!user) return <Redirect to="/" />
               // If movie list is empty (while movies load from API), display empty page
               if (movies.length === 0) return <div className="main-view" />;
@@ -117,13 +117,6 @@ export class MainView extends React.Component {
                 </Col>
               )
             }} />
-
-            <Route path="/profile"
-              render={({ user, history }) => {
-                return <Col>
-                  <ProfileView user={user} onBackClick={() => history.goBack()} />
-                </Col>
-              }} />
 
           </Row>
         </Container>
