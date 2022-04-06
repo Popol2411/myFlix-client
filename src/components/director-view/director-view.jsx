@@ -23,6 +23,10 @@ export class DirectorView extends React.Component {
               <span className="label">Born: </span>
               <span className="value">{director.Born}</span>
             </Card.Text>
+            <Card.Text>
+              <span className="label">Bio: </span>
+              <span className="value">{director.Bio}</span>
+            </Card.Text>
             <Button variant="outline-light" onClick={() => { onBackClick(); }}>Back</Button>
           </Card.Body>
         </Card>
