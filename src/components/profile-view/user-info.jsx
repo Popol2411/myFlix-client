@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-export function UserInfo({ email, name }) {
+export function UserData({ userdata }) {
   return (
     <>
-      <p>User: {name}</p>
-      <p>Email: {email}</p>
+      <h4>{userdata.Username}</h4>
+      <p>Email: {userdata.Email}</p>
+      <p>Birthday: {userdata.Birthday}</p>
     </>
   )
 }
-

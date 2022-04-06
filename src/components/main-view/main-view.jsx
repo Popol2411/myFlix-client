@@ -12,6 +12,8 @@ import { NavbarView } from '../navbar-view/navbar-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 
+
+
 import { Row, Col, Container } from 'react-bootstrap';
 
 export class MainView extends React.Component {

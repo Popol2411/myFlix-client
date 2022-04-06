@@ -27,22 +27,6 @@ export class GenreView extends React.Component {
           </Card.Body>
         </Card>
 
-        <Row>
-          {movies.map(movie => (
-            <Card className="favorite-movie card-content" key={movie._id} >
-              <Card.Img
-                className="fav-poster"
-                variant="top"
-                src={movie.ImagePath} />
-              <Card.Body style={{ backgroundColor: "black" }}>
-                <Card.Title className="movie_title">
-                  {movie.Title}
-                </Card.Title>
-              </Card.Body>
-            </Card>
-          ))}
-        </Row>
-
       </Container>
     );
   }
