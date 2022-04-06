@@ -56,7 +56,7 @@ export function RegistrationView(props) {
     const isReq = validate();
     if (isReq) {
       /* Send request to the server for user creation */
-      axios.post('https://myflixdbpopol.herokuapp.com/user', {
+      axios.post('https://myflixdbpopol.herokuapp.com/users', {
         Name: name,
         Username: username,
         Password: password,
