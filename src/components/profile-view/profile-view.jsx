@@ -265,7 +265,7 @@ export class ProfileView extends React.Component {
           <Container className="user-favorites">
             <Card className="user-favorites-container">
               <Card.Header className="user-favorites-header">
-                <h2>My Favorites</h2>
+                <h2>My Favorite Movies</h2>
               </Card.Header>
               <Card.Body>
                 {FavoriteMovies.length === 0 && (
