@@ -40,6 +40,26 @@ export class ProfileView extends React.Component {
       });
   };
 
+  onAddFavorite = (e, movie) => {
+    const username = localStorage.getItem('user');
+    console.log(username);
+    const token = localStorage.getItem('token');
+    axios
+      .post(
+        `https://myflixdbpopol.herokuapp.com/users/${Username}/movies/${movie._id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+      .then((response) => {
+        console.log(response);
+        alert(`${movie.Title} added to from favorites.`);
+        this.componentDidMount();
+      })
+      .catch(function (error) {
+        console.log(error.response.data);
+      });
+  };
+
   onLoggedOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -164,31 +184,38 @@ export class ProfileView extends React.Component {
       <div className="profile-view">
         <Row className="mb-2">
           <Col className="mb-2">
+
             <Card className="user-profile">
               <Card.Header>
                 <h2>User Profile</h2>
               </Card.Header>
+
               <Card.Body>
                 <Card.Text>
                   <span className="label">Username: </span>
                   <span className="value">{Username}</span>
                 </Card.Text>
+
                 <Card.Text>
                   <span className="label">Email: </span>
                   <span className="value">{Email}</span>
                 </Card.Text>
+
                 <Card.Text>
                   <span className="label">Birthday: </span>
                   <span className="value">{Birthday}</span>
                 </Card.Text>
+
               </Card.Body>
             </Card>
           </Col>
+
           <Col className="mb-2">
             <Card>
               <Card.Header>
                 <h2>Update Profile</h2>
               </Card.Header>
+
               <Card.Body>
                 <Form
                   className="update-form"
@@ -212,6 +239,7 @@ export class ProfileView extends React.Component {
                       required
                     />
                   </Form.Group>
+
                   <Form.Group>
                     <Form.Label>Password</Form.Label>
                     <Form.Control
@@ -222,6 +250,7 @@ export class ProfileView extends React.Component {
                       required
                     />
                   </Form.Group>
+
                   <Form.Group>
                     <Form.Label>Email</Form.Label>
                     <Form.Control
@@ -232,6 +261,7 @@ export class ProfileView extends React.Component {
                       required
                     />
                   </Form.Group>
+
                   <Form.Group>
                     <Form.Label>Birthday</Form.Label>
                     <Form.Control
@@ -240,6 +270,7 @@ export class ProfileView extends React.Component {
                       onChange={(e) => this.setBirthday(e.target.value)}
                     />
                   </Form.Group>
+
                   <Form.Group className="button-group">
                     <Button
                       variant="primary"
@@ -255,18 +286,21 @@ export class ProfileView extends React.Component {
                     >
                       Delete User
                     </Button>
+
                   </Form.Group>
                 </Form>
               </Card.Body>
             </Card>
           </Col>
         </Row>
+
         <Row>
           <Container className="user-favorites">
             <Card className="user-favorites-container">
               <Card.Header className="user-favorites-header">
                 <h2>My Favorite Movies</h2>
               </Card.Header>
+
               <Card.Body>
                 {FavoriteMovies.length === 0 && (
                   <div className="text-center">No Favorite Movies</div>
@@ -298,6 +332,7 @@ export class ProfileView extends React.Component {
                                 Remove
                               </Button>
                             </Card.Body>
+
                           </Card>
                         </Container>
                       );

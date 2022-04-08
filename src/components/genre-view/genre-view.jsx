@@ -13,17 +13,26 @@ export class GenreView extends React.Component {
       <Container>
 
         <Card>
+
+          <Card.Header>Genre</Card.Header>
           <Card.Body>
-            <Card.Title>Genre</Card.Title>
-            <Card.Text>
+
+            <Card.Title>
               <span className="label">Name: </span>
+            </Card.Title>
+            <Card.Text>
               <span className="value">{genre.Name}</span>
             </Card.Text>
-            <Card.Text>
+
+            <Card.Title>
               <span className="label">Description: </span>
+            </Card.Title>
+            <Card.Text>
               <span className="value">{genre.Description}</span>
             </Card.Text>
+
             <Button variant="outline-light" onClick={() => { onBackClick(); }}>Back</Button>
+
           </Card.Body>
         </Card>
 

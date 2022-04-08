@@ -71,41 +71,43 @@ export function RegistrationView(props) {
         })
         .catch(repsonse => {
           console.error(response);
-          alert('unable to register');
+          alert('Unable to register');
         });
     }
   };
 
   return (
+
     <Row className="mt-5">
       <Col md={12}>
+
         <Form>
-          <h3>Sign Up</h3>
+          <h1>Sign Up</h1>
 
           <Form.Group controlId="formUsername" className="reg-form-inputs">
             <Form.Label>Username:</Form.Label>
-            <Form.Control type="text" value={username} onChange={e =>
+            <Form.Control type="text" placeholder="Enter Username" value={username} onChange={e =>
               setUsername(e.target.value)} />
             {values.usernameErr && <p>{values.usernameErr}</p>}
           </Form.Group>
 
           <Form.Group controlId="formName" className="reg-form-inputs">
             <Form.Label>Name:</Form.Label>
-            <Form.Control type="text" value={name} onChange={e =>
+            <Form.Control type="text" placeholder="Enter Name" value={name} onChange={e =>
               setName(e.target.value)} />
             {values.nameErr && <p>{values.nameErr}</p>}
           </Form.Group>
 
           <Form.Group controlId="formPassword" className="reg-form-inputs">
             <Form.Label>Password:</Form.Label>
-            <Form.Control type="password" value={password} onChange={e =>
+            <Form.Control type="password" placeholder="Enter Password" value={password} onChange={e =>
               setPassword(e.target.value)} />
             {values.passwordErr && <p>{values.passwordErr}</p>}
           </Form.Group>
 
           <Form.Group controlId="Email" className="reg-form-inputs">
             <Form.Label>Email:</Form.Label>
-            <Form.Control type="email" value={email} onChange={e =>
+            <Form.Control type="email" placeholder="Enter Email" value={email} onChange={e =>
               setEmail(e.target.value)} />
             {values.emailErr && <p>{values.emailErr}</p>}
           </Form.Group>
@@ -120,6 +122,7 @@ export function RegistrationView(props) {
           <p></p>
           <p>Already registered?<Link to={'/'}> Sign in </Link> here! </p>
         </Form>
+
       </Col>
     </Row>
   );

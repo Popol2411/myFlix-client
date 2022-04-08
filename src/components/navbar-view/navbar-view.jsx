@@ -1,7 +1,5 @@
 import React from 'react';
-import axios from 'axios';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 
 export function NavbarView({ user }) {
@@ -26,12 +24,12 @@ export function NavbarView({ user }) {
 
       <Container>
 
-        <Navbar.Brand className="navbar-logo" href="/">MyFlix</Navbar.Brand>
+        <Navbar.Brand className="navbar-logo" href="/">My Flix Database</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
             {isAuth() && (
-              <Nav.Link href="/profile">{user}</Nav.Link>
+              <Nav.Link href="/users/{user}">My Profile</Nav.Link>
             )}
             {isAuth() && (
               <Button variant="link" onClick={() => {
