@@ -11,7 +11,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { NavbarView } from '../navbar-view/navbar-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
-
+import { ProfileView } from '../profile-view/profile-view';
 
 
 import { Row, Col, Container } from 'react-bootstrap';
@@ -120,6 +120,15 @@ export class MainView extends React.Component {
               )
             }} />
 
+            <Route exact path="/users/:Username" render={({ history }) => {
+              if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+              if (movies.length === 0) return <div className="main-view" />;
+              return (
+                <Col md={8}>
+                  <ProfileView user={user} setUser={(user) => this.setUser(user)} movies={movies} onLoggedOut={() => this.onLoggedOut()} onBackClick={() => history.goBack()} />
+                </Col>
+              )
+            }} />
           </Row>
         </Container>
       </Router>
