@@ -1,13 +1,13 @@
 import React from 'react';
-import axios from 'axios';
+
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Container, Card, Button, Row } from 'react-bootstrap';
+
+import { Container, Card, Button } from 'react-bootstrap';
 
 export class GenreView extends React.Component {
 
   render() {
-    const { genre, onBackClick, movies } = this.props;
+    const { genre, onBackClick } = this.props;
 
     return (
       <Container>
@@ -35,5 +35,6 @@ export class GenreView extends React.Component {
 GenreView.proptypes = {
   genre: PropTypes.shape({
     Name: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
   }).isRequired,
 };

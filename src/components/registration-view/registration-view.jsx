@@ -133,3 +133,4 @@ RegistrationView.propTypes = {
     Email: PropTypes.string.isRequired,
   }),
 };
+

@@ -1,13 +1,13 @@
 import React from 'react';
-import axios from 'axios';
+
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+
 import { Container, Card, Button, Row } from 'react-bootstrap';
 
 export class DirectorView extends React.Component {
 
   render() {
-    const { director, onBackClick, movies } = this.props;
+    const { director, onBackClick } = this.props;
 
     return (
       <Container>
@@ -39,5 +39,7 @@ export class DirectorView extends React.Component {
 DirectorView.proptypes = {
   director: PropTypes.shape({
     Name: PropTypes.string.isRequired,
+    Born: PropTypes.number.isRequired,
+    Bio: PropTypes.string.isRequired,
   }).isRequired,
 };

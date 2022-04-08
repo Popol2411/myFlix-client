@@ -39859,7 +39859,6 @@ var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactBootstrap = require("react-bootstrap");
 var _axios = require("axios"); //added axios to be able to login via axios.post (below)
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 function LoginView(props) {
     _s();
@@ -39903,7 +39902,7 @@ function LoginView(props) {
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 56
+            lineNumber: 55
         },
         __self: this,
         children: [
@@ -39911,14 +39910,14 @@ function LoginView(props) {
                 controlId: "formUsername",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 58
+                    lineNumber: 57
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 59
+                            lineNumber: 58
                         },
                         __self: this,
                         children: "Username:"
@@ -39931,14 +39930,14 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 60
+                            lineNumber: 59
                         },
                         __self: this
                     }),
                     usernameErr && /*#__PURE__*/ _jsxRuntime.jsx("p", {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 62
+                            lineNumber: 61
                         },
                         __self: this,
                         children: usernameErr
@@ -39949,14 +39948,14 @@ function LoginView(props) {
                 controlId: "formPassword",
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 65
+                    lineNumber: 64
                 },
                 __self: this,
                 children: [
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 66
+                            lineNumber: 65
                         },
                         __self: this,
                         children: "Password"
@@ -39969,14 +39968,14 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 67
+                            lineNumber: 66
                         },
                         __self: this
                     }),
                     passwordErr && /*#__PURE__*/ _jsxRuntime.jsx("p", {
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 69
+                            lineNumber: 68
                         },
                         __self: this,
                         children: passwordErr
@@ -39989,7 +39988,7 @@ function LoginView(props) {
                 onClick: handleSubmit,
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 72
+                    lineNumber: 71
                 },
                 __self: this,
                 children: "Submit"
@@ -40014,7 +40013,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap":"h2YVd","axios":"iYoWk","react-router-dom":"cpyQW","@parcel/transformer-js/src/esmodule-helpers.js":"1kle7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Ebaj"}],"aP2YV":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap":"h2YVd","axios":"iYoWk","@parcel/transformer-js/src/esmodule-helpers.js":"1kle7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Ebaj"}],"aP2YV":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8dd4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -40540,15 +40539,12 @@ parcelHelpers.export(exports, "DirectorView", ()=>DirectorView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _reactRouterDom = require("react-router-dom");
 var _reactBootstrap = require("react-bootstrap");
 class DirectorView extends _reactDefault.default.Component {
     render() {
-        const { director , onBackClick , movies  } = this.props;
+        const { director , onBackClick  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/director-view/director-view.jsx",
@@ -40677,7 +40673,9 @@ class DirectorView extends _reactDefault.default.Component {
 }
 DirectorView.proptypes = {
     director: _propTypesDefault.default.shape({
-        Name: _propTypesDefault.default.string.isRequired
+        Name: _propTypesDefault.default.string.isRequired,
+        Born: _propTypesDefault.default.number.isRequired,
+        Bio: _propTypesDefault.default.string.isRequired
     }).isRequired
 };
 
@@ -40686,7 +40684,7 @@ DirectorView.proptypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","prop-types":"1tgq3","react-router-dom":"cpyQW","react-bootstrap":"h2YVd","@parcel/transformer-js/src/esmodule-helpers.js":"1kle7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Ebaj"}],"8WCoL":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap":"h2YVd","@parcel/transformer-js/src/esmodule-helpers.js":"1kle7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Ebaj"}],"8WCoL":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$5f0a = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -40700,15 +40698,12 @@ parcelHelpers.export(exports, "GenreView", ()=>GenreView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _reactRouterDom = require("react-router-dom");
 var _reactBootstrap = require("react-bootstrap");
 class GenreView extends _reactDefault.default.Component {
     render() {
-        const { genre , onBackClick , movies  } = this.props;
+        const { genre , onBackClick  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
             __source: {
                 fileName: "src/components/genre-view/genre-view.jsx",
@@ -40810,7 +40805,8 @@ class GenreView extends _reactDefault.default.Component {
 }
 GenreView.proptypes = {
     genre: _propTypesDefault.default.shape({
-        Name: _propTypesDefault.default.string.isRequired
+        Name: _propTypesDefault.default.string.isRequired,
+        Description: _propTypesDefault.default.string.isRequired
     }).isRequired
 };
 
@@ -40819,6 +40815,6 @@ GenreView.proptypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","prop-types":"1tgq3","react-router-dom":"cpyQW","react-bootstrap":"h2YVd","@parcel/transformer-js/src/esmodule-helpers.js":"1kle7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Ebaj"}],"jUTZ8":[function() {},{}]},["bNN1O","jTzHg","dLPEP"], "dLPEP", "parcelRequireaec4")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap":"h2YVd","@parcel/transformer-js/src/esmodule-helpers.js":"1kle7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1Ebaj"}],"jUTZ8":[function() {},{}]},["bNN1O","jTzHg","dLPEP"], "dLPEP", "parcelRequireaec4")
 
 //# sourceMappingURL=index.6701a6e1.js.map
