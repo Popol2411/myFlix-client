@@ -52,7 +52,7 @@ export class ProfileView extends React.Component {
         })
       .then((response) => {
         console.log(response);
-        alert(`${movie.Title} added to from favorites.`);
+        alert(`${movie.Title} added to favorites.`);
         this.componentDidMount();
       })
       .catch(function (error) {

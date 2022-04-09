@@ -39860,7 +39860,11 @@ MovieView.propTypes = {
         ImagePath: _propTypesDefault.default.string.isRequired,
         Genre: _propTypesDefault.default.shape({
             Name: _propTypesDefault.default.string.isRequired
-        })
+        }),
+        Director: _propTypesDefault.default.shape({
+            Name: _propTypesDefault.default.string.isRequired
+        }),
+        Actors: _propTypesDefault.default.array
     }).isRequired,
     onBackClick: _propTypesDefault.default.func.isRequired
 };
@@ -39954,7 +39958,7 @@ function LoginView(props) {
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
                         type: "text",
-                        placeholder: "Enter username",
+                        placeholder: "Enter Username",
                         value: username,
                         onChange: (e)=>setUsername(e.target.value)
                         ,
@@ -39992,7 +39996,7 @@ function LoginView(props) {
                     }),
                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
                         type: "password",
-                        placeholder: "Password",
+                        placeholder: "Enter Password",
                         value: password,
                         onChange: (e)=>setPassword(e.target.value)
                         ,
@@ -40931,7 +40935,7 @@ class ProfileView extends _reactDefault.default.Component {
             }
         }).then((response)=>{
             console.log(response);
-            alert(`${movie.Title} added to from favorites.`);
+            alert(`${movie.Title} added to favorites.`);
             this.componentDidMount();
         }).catch(function(error) {
             console.log(error.response.data);
