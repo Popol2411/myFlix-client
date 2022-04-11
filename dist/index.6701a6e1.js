@@ -40504,7 +40504,7 @@ function NavbarView({ user  }) {
                         __self: this,
                         children: [
                             isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
-                                href: "/users/{user}",
+                                href: "/users/${user}",
                                 __source: {
                                     fileName: "src/components/navbar-view/navbar-view.jsx",
                                     lineNumber: 32
@@ -40913,7 +40913,7 @@ class ProfileView extends _reactDefault.default.Component {
         const username = localStorage.getItem('user');
         console.log(username);
         const token = localStorage.getItem('token');
-        _axiosDefault.default.delete(`https://myflixdbpopol.herokuapp.com/users/${Username}/movies/${movie._id}`, {
+        _axiosDefault.default.delete(`https://myflixdbpopol.herokuapp.com/users/${username}/movies/${movie._id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -40929,7 +40929,7 @@ class ProfileView extends _reactDefault.default.Component {
         const username = localStorage.getItem('user');
         console.log(username);
         const token = localStorage.getItem('token');
-        _axiosDefault.default.post(`https://myflixdbpopol.herokuapp.com/users/${Username}/movies/${movie._id}`, {
+        _axiosDefault.default.post(`https://myflixdbpopol.herokuapp.com/users/${username}/movies/${movie._id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -40950,8 +40950,8 @@ class ProfileView extends _reactDefault.default.Component {
         window.open('/', '_self');
     }
     getUser = (token)=>{
-        const Username = localStorage.getItem('user');
-        _axiosDefault.default.get(`https://myflixdbpopol.herokuapp.com/users/${Username}`, {
+        const username = localStorage.getItem('user');
+        _axiosDefault.default.get(`https://myflixdbpopol.herokuapp.com/users/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -40969,9 +40969,9 @@ class ProfileView extends _reactDefault.default.Component {
     };
     editUser = (e)=>{
         e.preventDefault();
-        const Username = localStorage.getItem('user');
+        const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-        _axiosDefault.default.put(`https://myflixdbpopol.herokuapp.com/users/${Username}`, {
+        _axiosDefault.default.put(`https://myflixdbpopol.herokuapp.com/users/${username}`, {
             Username: this.state.Username,
             Password: this.state.Password,
             Email: this.state.Email,
@@ -40992,15 +40992,15 @@ class ProfileView extends _reactDefault.default.Component {
             console.log(data);
             console.log(this.state.Username);
             alert('Profile updated!');
-            window.open(`/users/${Username}`, '_self');
+            window.open(`/users/${username}`, '_self');
         }).catch(function(error) {
             console.log(error.response.data);
         });
     };
     onDeleteUser() {
-        const Username = localStorage.getItem('user');
+        const username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-        _axiosDefault.default.delete(`https://myflixdbpopol.herokuapp.com/users/${Username}`, {
+        _axiosDefault.default.delete(`https://myflixdbpopol.herokuapp.com/users/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -41494,6 +41494,19 @@ class ProfileView extends _reactDefault.default.Component {
                                                                     },
                                                                     __self: this,
                                                                     children: "Remove"
+                                                                }),
+                                                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                                                    size: "sm",
+                                                                    variant: "danger",
+                                                                    value: movie._id,
+                                                                    onClick: (e)=>this.onAddFavorite(e, movie)
+                                                                    ,
+                                                                    __source: {
+                                                                        fileName: "src/components/profile-view/profile-view.jsx",
+                                                                        lineNumber: 334
+                                                                    },
+                                                                    __self: this,
+                                                                    children: "Add"
                                                                 })
                                                             ]
                                                         })
