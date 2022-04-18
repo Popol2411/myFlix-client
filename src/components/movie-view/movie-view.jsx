@@ -1,5 +1,5 @@
-import React from 'react';  //as for the main-view.jsx, react needs to be imported in order to use the react library
-import PropTypes from 'prop-types';   //    //since we use prop-types (Property Types), we need to import these too
+import React from 'react';  //as for the main-view.jsx, react needs to be imported in order to use the react library.
+import PropTypes from 'prop-types';   //    //since we use prop-types (Property Types), we need to import these too.
 import { Container, Row, Col, Card, Button, Link } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
