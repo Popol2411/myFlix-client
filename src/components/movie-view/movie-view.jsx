@@ -5,6 +5,31 @@ import { Link } from "react-router-dom";
 
 export class MovieView extends React.Component {
 
+  constructor(props) {
+    super(props);
+  }
+
+  addFavoriteMovie() {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+
+    axios
+      .post(
+        `https://myflixdbpopol.herokuapp.com/users/${user}/movies/${this.props.movie._id}`,
+        {},
+        {
+          headers: { Authorization: `Bearer ${token}` },
+          method: 'POST',
+        }
+      )
+      .then((response) => {
+        alert(`Added ${this.props.movie.Title} to your favorites!`);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
     const { movie, onBackClick } = this.props;  //we have 2 CONSTants that we use in this file with props. "movie" and "onBackClick". The propTypes are added at the bottom of the file
 
@@ -45,6 +70,16 @@ export class MovieView extends React.Component {
             </Card>
 
             <Button onClick={() => { onBackClick(null); }}>Back</Button>
+
+            {` `}
+            <Button
+              variant="outline-primary"
+              className="btn-outline-primary"
+              value={movie._id}
+              onClick={(e) => this.addFavoriteMovie(e, movie)}
+            >
+              Add to Favorites
+            </Button>
 
           </Col>
         </Row>

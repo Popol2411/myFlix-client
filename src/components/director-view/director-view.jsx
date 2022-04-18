@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 
 import { Container, Card, Button } from 'react-bootstrap';
 
+import axios from 'axios';
+
+import { Link } from 'react-router-dom';
+
 export class DirectorView extends React.Component {
 
   render() {

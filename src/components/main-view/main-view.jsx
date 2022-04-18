@@ -4,13 +4,13 @@ import axios from 'axios';
 
 import { connect } from 'react-redux';
 
-import { setMovies } from '../../actions/actions';
+import { setMovies, setUser } from '../../actions/actions';
 
 import MoviesList from '../movies-list/movies-list';
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import { MovieCard } from '../movie-card/movie-card';
+// import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
@@ -28,11 +28,25 @@ export class MainView extends React.Component {
     super();
 
     this.state = {
-      movies: [],
+      //    movies: [],   --> Movies State Removed
       user: null
     };
   }
 
+
+  // Load Movies from DB
+  componentDidMount() {
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
+      });
+      this.getMovies(accessToken);
+    }
+  }
+
+
+  // Get Movies
   getMovies(token) {
     axios.get('https://myflixdbpopol.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}` }
@@ -46,6 +60,8 @@ export class MainView extends React.Component {
       });
   }
 
+
+  // To Log In
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
@@ -57,16 +73,27 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
-  componentDidMount() {
-    let accessToken = localStorage.getItem('token');
-    if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem('user')
-      });
-      this.getMovies(accessToken);
-    }
+  // To log out
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null,
+    });
+    window.open('/', '_self');
   }
 
+  // Set user
+  setUser(user) {
+    this.setState({ user });
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  setSelectedMovie(newSelectedMovie) {
+    this.setState({
+      selectedMovie: newSelectedMovie,
+    });
+  }
 
   render() {
     let { movies } = this.props;
@@ -139,7 +166,7 @@ export class MainView extends React.Component {
 }
 
 let mapStateToProps = state => {
-  return { movies: state.movies }
+  return { movies: state.movies, user: state.user }
 }
 
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, { setMovies, setUser })(MainView);
