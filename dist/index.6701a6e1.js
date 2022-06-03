@@ -42031,9 +42031,9 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MovieView", ()=>MovieView
 );
 var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react"); //as for the main-view.jsx, react needs to be imported in order to use the react library
+var _react = require("react"); //as for the main-view.jsx, react needs to be imported in order to use the react library.
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types"); //    //since we use prop-types (Property Types), we need to import these too
+var _propTypes = require("prop-types"); //    //since we use prop-types (Property Types), we need to import these too.
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
