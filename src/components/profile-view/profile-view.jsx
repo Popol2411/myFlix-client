@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import { Form, Button, Container, Row, Col, Form, Card } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
 
 export class ProfileView extends React.Component {
   constructor() {
