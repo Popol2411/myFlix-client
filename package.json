@@ -27,7 +27,7 @@
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9"
   },
-  "main": "index.js",
+  "main": "src/index.html",
   "description": "",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.0-rc.0"
