@@ -28681,6 +28681,7 @@ class MovieCard extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Img, {
                     variant: "top",
                     src: movie.ImagePath,
+                    crossOrigin: "true",
                     __source: {
                         fileName: "src/components/movie-card/movie-card.jsx",
                         lineNumber: 13
@@ -42094,6 +42095,7 @@ class MovieView extends _reactDefault.default.Component {
                                     /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Img, {
                                         variant: "top",
                                         src: movie.ImagePath,
+                                        crossOrigin: "true",
                                         __source: {
                                             fileName: "src/components/movie-view/movie-view.jsx",
                                             lineNumber: 45
@@ -43859,6 +43861,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                             className: "fav-poster",
                                                             variant: "top",
                                                             src: movie.ImagePath,
+                                                            crossOrigin: "true",
                                                             __source: {
                                                                 fileName: "src/components/profile-view/profile-view.jsx",
                                                                 lineNumber: 317
@@ -43869,7 +43872,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                             className: "favorite-movie-body",
                                                             __source: {
                                                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                                                lineNumber: 322
+                                                                lineNumber: 323
                                                             },
                                                             __self: this,
                                                             children: [
@@ -43877,7 +43880,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                                     className: "movie-title",
                                                                     __source: {
                                                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                                                        lineNumber: 323
+                                                                        lineNumber: 324
                                                                     },
                                                                     __self: this,
                                                                     children: movie.Title
@@ -43890,7 +43893,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                                     ,
                                                                     __source: {
                                                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                                                        lineNumber: 326
+                                                                        lineNumber: 327
                                                                     },
                                                                     __self: this,
                                                                     children: "Remove"
@@ -43903,7 +43906,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                                     ,
                                                                     __source: {
                                                                         fileName: "src/components/profile-view/profile-view.jsx",
-                                                                        lineNumber: 334
+                                                                        lineNumber: 335
                                                                     },
                                                                     __self: this,
                                                                     children: "Add"

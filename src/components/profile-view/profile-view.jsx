@@ -318,6 +318,7 @@ export class ProfileView extends React.Component {
                               className="fav-poster"
                               variant="top"
                               src={movie.ImagePath}
+                              crossOrigin="true"
                             />
                             <Card.Body className="favorite-movie-body">
                               <Card.Title className="movie-title">
