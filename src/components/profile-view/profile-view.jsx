@@ -181,11 +181,11 @@ export class ProfileView extends React.Component {
     const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
     return (
-      <div className="profile-view">
-        <Row className="mb-2">
-          <Col className="mb-2">
+      <div>
+        <Row>
+          <Col>
 
-            <Card className="user-profile">
+            <Card>
               <Card.Header>
                 <h2>User Profile</h2>
               </Card.Header>
@@ -330,17 +330,9 @@ export class ProfileView extends React.Component {
                                 value={movie._id}
                                 onClick={(e) => this.onRemoveFavorite(e, movie)}
                               >
-                                Remove
+                                Remove from favorites
                               </Button>
-                              <Button
-                                size="sm"
-                                variant="danger"
-                                value={movie._id}
-                                onClick={(e) => this.onAddFavorite(e, movie)}
-                              >
-                                Add
-                              </Button>
-
+                            
                             </Card.Body>
 
                           </Card>
