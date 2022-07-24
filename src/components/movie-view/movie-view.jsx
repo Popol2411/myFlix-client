@@ -35,9 +35,9 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;  //we have 2 CONSTants that we use in this file with props. "movie" and "onBackClick". The propTypes are added at the bottom of the file
 
     return (    //the return that is rendered to the user
-      <Container fluid>
+      <Container>
         <Row>
-          <Col Col xs={6} md={4}>
+          <Col>
 
             <Card>
               <Card.Body>

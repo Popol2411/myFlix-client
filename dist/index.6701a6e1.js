@@ -42070,7 +42070,6 @@ class MovieView extends _reactDefault.default.Component {
     render() {
         const { movie , onBackClick  } = this.props; //we have 2 CONSTants that we use in this file with props. "movie" and "onBackClick". The propTypes are added at the bottom of the file
         return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
-            fluid: true,
             __source: {
                 fileName: "src/components/movie-view/movie-view.jsx",
                 lineNumber: 38
@@ -42083,9 +42082,6 @@ class MovieView extends _reactDefault.default.Component {
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Col, {
-                    Col: true,
-                    xs: 6,
-                    md: 4,
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 40

@@ -19,7 +19,7 @@ export function RegistrationView(props) {
     emailErr: '',
   });
 
-  // validate user inputs
+  // validates user inputs
   const validate = () => {
     let isReq = true;
     if (!name) {
