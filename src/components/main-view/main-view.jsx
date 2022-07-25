@@ -114,7 +114,7 @@ export class MainView extends React.Component {
               return <MoviesList movies={movies} />;
             }} />
 
-            <Route path='/register' render={() => {
+            <Route exact path='/register' render={() => {
               if (user) return <Redirect to="/" />
               return <Col>
                 <RegistrationView />

@@ -25532,6 +25532,7 @@ class MainView extends _reactDefault.default.Component {
                                 __self: this
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                                exact: true,
                                 path: "/register",
                                 render: ()=>{
                                     if (user) return(/*#__PURE__*/ _jsxRuntime.jsx(Redirect, {
@@ -42472,7 +42473,7 @@ function RegistrationView(props) {
         passwordErr: '',
         emailErr: ''
     });
-    // validate user inputs
+    // validates user inputs
     const validate = ()=>{
         let isReq = true;
         if (!name) {
