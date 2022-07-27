@@ -2,6 +2,10 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   color: #ffffff;
-  background-color: lightblue;
+}
+
+body {
+  background-image: url("cinema.4ea09e68.jpg");
+  background-repeat: no-repeat;
 }
 /*# sourceMappingURL=index.caa67093.css.map */
