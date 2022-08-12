@@ -13,12 +13,15 @@ myFlix Client is the frontend-side of a movies web application. The application 
 ### Main View
 
 - Returns a list of ALL movies to the user (each listed item with an image, title and description)
+
 - Sorting and filtering
+
 - Ability to select a movie for more details
 
 ### Single movie view
 
 - Returns data (description, genre, director, image) about a single movie to the user
+
 - Allows users to add a movie to their list of favorites
 
 ### Login view
