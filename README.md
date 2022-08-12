@@ -58,11 +58,11 @@ myFlix Client is the frontend-side of a movies web application. The application 
 
 - JavaScript
  
-- React, React-Redux
+- [React](https://reactjs.org/), [React-Redux](https://react-redux.js.org/)
 
-- React-Bootstrap
+- [React-Bootstrap](https://react-bootstrap.github.io/)
 
-- Parcel
+- [Parcel](https://parceljs.org/)
 
 ## :page_with_curl: Technical Requirements
 
