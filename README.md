@@ -1,4 +1,4 @@
-# :seedling: myFlix API
+# :seedling: myFlix Client
 
 myFlix Client is the frontend-side of a movies web application. The application provides users with access to information about different movies, their directors and the movie genre. Users are able to sign up, update their personal information, create a list of their favorite movies and remove movies from their favorite list.
 
@@ -52,13 +52,17 @@ myFlix Client is the frontend-side of a movies web application. The application 
 
 ## :hammer_and_wrench: Built With 
 
+- HTML
+
+- CSS
+
 - JavaScript
+ 
+- React, React-Redux
 
-- Node.js
+- React-Bootstrap
 
-- Express
-
-- MongoDB
+- Parcel
 
 ## :page_with_curl: Technical Requirements
 
@@ -96,12 +100,5 @@ Start the server
 ```
 node index.js
 ```
-#### Endpoints tested with [Postman](https://www.postman.com/) :computer:
-
-Documentation can be found here :point_right: https://github.com/Popol2411/movie_app/blob/main/public/documentation.html
-
-#### Deployment to [Heroku](https://www.heroku.com/) :card_index_dividers: 
-
-#### Documentation with [JSDocs](https://jsdoc.app/) :memo:
 
 ## :rocket:
