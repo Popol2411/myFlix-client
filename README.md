@@ -101,4 +101,6 @@ Start the server
 node index.js
 ```
 
+#### Build with [Parcel](https://parceljs.org/) :package:
+
 ## :rocket:
