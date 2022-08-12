@@ -62,33 +62,25 @@ myFlix Client is the frontend-side of a movies web application. The application 
 
 ## :page_with_curl: Technical Requirements
 
-- The API must be a Node.js and Express application.  
+- The application must be a single-page application (SPA)
 
-- The API must use REST architecture, with URL endpoints corresponding to the data operations listed above. 
+- The application must use state routing to navigate between views and share URLs
 
-- The API must use at least three middleware modules, such as the body-parser package for reading data from requests and morgan for logging.
+- The application must give users the option to filter movies
 
-- The API must use a “package.json” file. 
+- The application must give users the option to sort movies
 
-- The database must be built using MongoDB.  
+- The application must initially use Parcel as its build tool
 
-- The business logic must be modeled with Mongoose.  
+- The application must be written using the React library and in ES2015+
 
-- The API must provide movie information in JSON format.  
+- The application must be written with React Redux (hence respecting the Flux pattern)
 
-- The JavaScript code must be error-free.   
+- The application must use Bootstrap as a UI library for styling and responsiveness
 
-- The API must be tested in Postman.  
+- The application must contain a mix of class components and function components
 
-- The API must include user authentication and authorization code.  
-
-- The API must include data validation logic.  
-
-- The API must meet data security regulations.  
-
-- The API source code must be deployed to a publicly accessible platform like GitHub.  
-
-- The API must be deployed to Heroku.
+- The application may be hosted online
 
 ## :man_technologist: Get Started
 
