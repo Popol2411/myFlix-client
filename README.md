@@ -90,15 +90,15 @@ myFlix Client is the frontend-side of a movies web application. The application 
 
 Download the repository on your machine 
 ```
-https://github.com/Popol2411/movie_app.git
+https://github.com/Popol2411/myFlix-client.git
 ```
-Install MongoDB
+Install Depedencies
 ```
-npm install mongodb
+npm install
 ```
-Start the server
+Build the app
 ```
-node index.js
+parcel src/index.html
 ```
 
 #### Build with [Parcel](https://parceljs.org/) :package:
