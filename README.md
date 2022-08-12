@@ -25,7 +25,7 @@ myFlix Client is the frontend-side of a movies web application. The application 
 
 - Allows users to log in with a username and password
 
-### Registration view
+- Registration view
 
 - Allows new users to register (username, password, email, birthday)
 
