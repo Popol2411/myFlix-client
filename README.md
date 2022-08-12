@@ -35,11 +35,13 @@ myFlix Client is the frontend-side of a movies web application. The application 
 ### Genre view
 
 - Returns data about a genre, with a name and description
+
 - Displays example movies
 
 ### Director view
 
 - Returns data about a director (name, bio, birth year, death year)
+
 - Displays example movies
 
 ## :hammer_and_wrench: Built With 
