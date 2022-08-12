@@ -92,7 +92,7 @@ Download the repository on your machine
 ```
 https://github.com/Popol2411/myFlix-client.git
 ```
-Install Depedencies
+Install dependencies
 ```
 npm install
 ```
