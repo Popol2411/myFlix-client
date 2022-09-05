@@ -42,7 +42,7 @@ export class MovieView extends React.Component {
             <Card>
               <Card.Body>
 
-                <Card.Img variant="top" src={movie.ImagePath} crossOrigin="true" />
+                <Card.Img variant="top" src={movie.ImagePath} crossOrigin="true" width="50%" />
 
                 <Card.Title>Description: </Card.Title>
                 <Card.Text>{movie.Description}</Card.Text>
