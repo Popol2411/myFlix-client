@@ -43,7 +43,7 @@ export class DirectorView extends React.Component {
               <span className="value">{director.Bio}</span>
             </Card.Text>
 
-            <Button variant="outline-light" onClick={() => { onBackClick(); }}>Back</Button>
+            <Button variant="outline-dark" onClick={() => { onBackClick(); }}>Back</Button>
 
           </Card.Body>
         </Card>
