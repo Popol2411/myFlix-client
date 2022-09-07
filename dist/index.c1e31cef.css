@@ -1,0 +1,48 @@
+img {
+  max-width: 400px;
+}
+.login-form {
+  background: #9f9e9e8a;
+  padding: 42px;
+  text-align: left;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.login-button {
+  background: #d69343;
+  border-color: #d69343;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+.registration-form {
+  background: #9f9e9e8a;
+  padding: 42px;
+  text-align: left;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.registration-button {
+  background: #d69343;
+  border-color: #d69343;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-image: url("cinema.4ea09e68.jpg");
+  background-repeat: no-repeat;
+  text-align: center;
+}
+/*# sourceMappingURL=index.c1e31cef.css.map */

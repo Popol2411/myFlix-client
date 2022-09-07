@@ -4,6 +4,8 @@ import { Row, Col, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
+import './registration-view.scss';
+
 export function RegistrationView(props) {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
@@ -77,7 +79,7 @@ export function RegistrationView(props) {
   };
 
   return (
-
+  <div class="registration-form">
     <Row className="mt-5">
       <Col md={12}>
 
@@ -118,13 +120,14 @@ export function RegistrationView(props) {
               setBirthday(e.target.value)}></Form.Control>
           </Form.Group>
 
-          <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
+          <Button class="registration-button" variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
           <p></p>
           <p>Already registered?<Link to={'/'}> Sign in </Link> here! </p>
         </Form>
 
       </Col>
     </Row>
+  </div>
   );
 }
 

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';    //added axios to be able to login via axios.post
 
+import './login-view.scss';
+
 export function LoginView(props) {
   const [username, setUsername] = useState('');   //useState is a "Hook" from React. In contrast to a class, functions with hooks don´t need to use the ".this.state". Instead we use "useState" directly  
   const [password, setPassword] = useState('');
@@ -52,7 +54,10 @@ export function LoginView(props) {
   };
 
   return (
+    <div class="login-form">
     <Form>
+
+      <h1>Login</h1>
 
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>
@@ -68,11 +73,12 @@ export function LoginView(props) {
         {passwordErr && <p>{passwordErr}</p>}
       </Form.Group>
 
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
+      <Button class= "login-button" variant="primary" type="submit" onClick={handleSubmit}>
         Submit
       </Button>
 
     </Form>
+    </div>
   )
 }
 
