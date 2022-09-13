@@ -3,13 +3,16 @@
   padding: 42px;
   text-align: left;
   color: white;
-  margin-bottom: 15px;
+  margin: 15px auto; 
+  border-radius: 5px;
+  max-width: 500px;
 }
 
-.login-button {
+.btn-primary {
   background: #d69343;
   border-color: #d69343;
   color: white;
+  margin-top: 15px;
 }
 
 h1 {

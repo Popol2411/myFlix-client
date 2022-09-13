@@ -25552,6 +25552,11 @@ class MainView extends _reactDefault.default.Component {
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                                 path: "/movies/:movieId",
                                 render: ({ match , history  })=>{
+                                    if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                                        children: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+                                            onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                                        })
+                                    }));
                                     return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                                         children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
                                             movie: movies.find((m)=>m._id === match.params.movieId
@@ -25586,7 +25591,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 130
+                                    lineNumber: 135
                                 },
                                 __self: this
                             }),
@@ -25611,7 +25616,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 138
+                                    lineNumber: 143
                                 },
                                 __self: this
                             }),
@@ -25639,7 +25644,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "src/components/main-view/main-view.jsx",
-                                    lineNumber: 149
+                                    lineNumber: 154
                                 },
                                 __self: this
                             })
@@ -42426,7 +42431,6 @@ function LoginView(props) {
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                     class: "login-button",
-                    variant: "primary",
                     type: "submit",
                     onClick: handleSubmit,
                     __source: {
